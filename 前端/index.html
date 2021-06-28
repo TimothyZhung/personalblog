@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Tigris - Personal Portfolio Template" />
+	<meta name="keywords" content="business card, creative, creative portfolio, cv theme, online resume, personal, portfolio, professional cv, responsive portfolio, resume, resume theme, vcard" />
+	<meta name="author" content="beingeorge" />
+	<meta name="theme-color" content="#1f1f20">
+
+	<title>Personal Space</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+	<!-- Font Awesome CSS -->
+	<link href="assets/css/all.css" rel="stylesheet" media="screen">
+
+	<!--[if lte IE 7]> 
+		<script src="assets/js/icons-lte-ie7.js"></script>
+	<![endif]-->
+
+	<link href="assets/css/vendor.css" rel="stylesheet">
+
+	<!-- Tigris styles CSS -->
+	<link href="assets/css/Tigris.css" rel="stylesheet" media="screen">
+
+
+	<link href="assets/css/custom.css" rel="stylesheet" media="screen">
+	<script src="assets/js/jquery.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/poppyjs"></script>
+</head>
+<body>
+
+	<!-- Preloader : Start -->
+<div id='root'>
+	<div id="loading">
+		<div id="loading-center">
+			<div class="spinner-grow" role="status">
+			  <span class="sr-only">Loading...</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Preloader : End  -->
+
+
+	<div class="menu-wrapper">
+		<button class="hamburger-menu" id="hamburger-menu">
+			<span class='hamburger'></span>
+			<span class='hamburger-overlay'></span>	
+		</button>
+		<div class="Menu ham-tilt">
+			<ul class="Menu-list" >
+				<li class="Menu-list-item">
+					<a href="#portfolio">Photos</a>
+				</li>
+				<li class="Menu-list-item">
+					<a href="#blog">Blogs</a>
+				</li>
+				<li class="Menu-list-item">
+					<a href="#contact">Contact</a>
+				</li>
+				<li class="Menu-list-item">
+					<a href="#testimonial">About us</a>
+				</li>
+				<li class="Menu-list-item">
+					<a onclick="signin()" id='signIn'>Sign In</a>
+				</li>
+				<li class="Menu-list-item">
+					<a href="./login/index.html" onclick="localStorage.clear();">Log Out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function signin (){
+			//localStorage["id"]=1;
+			if(localStorage["id"] != undefined){
+				var hamburger_menu=document.getElementById("hamburger-menu")
+				hamburger_menu.click();
+				let pop = new Poppy({
+				title: {
+					text: "您已登录！",
+					color: "#e74c3c"
+				},
+				position: "topLeft",
+				closeAfter: 3000
+				});
+				pop.show();
+				return ;
+			}
+			window.location.replace("./login/index.html");
+		}
+	</script>
+
+	<!-- Home Banner : Start -->
+
+	<section id="home" class="home-banner module-image js-height-full">
+		
+		<div class="hero-banner-content d-flex align-items-center">
+			<div class="container">
+				<div class="d-table">
+					<div class="hero-banner-left d-table-cell w-60 v-align-middle">
+						<div class="intro">
+							<h3>Hello,</h3>
+							<h1>We are <span>Richfishes</span></h1>
+							<p class="typed" data-elements="Hust Students.,Web Front-end Programmers., Gods.">Some </p>
+						</div>
+					</div>
+					<div class="hero-banner-right d-table-cell w-40 v-align-middle">
+						<div class="hero-right"  id="scene">
+							<img  data-depth="0.5" src="assets/images/about.jpg" alt="side-image">
+							<span data-depth="1"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>	
+		
+		<canvas class="background"></canvas>
+	
+	</section>
+
+	<!-- Home Banner : End -->
+
+	<!-- Portfolio start -->
+
+	<section id="portfolio" class="module module-gray">
+		<div class="container">
+			<div class="row">
+
+				<div class="module-header wow fadeInUp">
+					<h2 class="module-title"> Photos </h2>
+					<div class="module-line"></div>
+				</div>
+
+			</div><!-- .row -->
+
+			<ul class="list-items-container" id='allpics'>
+
+				<li class="list-item" data-groups="all slideshow">
+					<figure>
+						<img src="assets/images/p1-1.jpg" alt="p1">
+						<figcaption>
+							<a href="assets/images/p1-1.jpg" class="simple-ajax-popup"></a>
+							<div class="caption-inner">
+								<h3 class="portfolio-item-title">Some work</h3>
+								<div class="portfolio-item-desc">Slideshow</div>
+							</div>
+						</figcaption>
+					</figure>
+				</li>
+
+				<li class="list-item" data-groups="all video">
+					<figure>
+						<img src="assets/images/p2-2.jpg" alt="p2">
+						<figcaption>
+							<a href="assets/images/p2-2.jpg" class="simple-ajax-popup"></a>
+							<div class="caption-inner">
+								<h3 class="portfolio-item-title">Some work</h3>
+								<div class="portfolio-item-desc">Video</div>
+							</div>
+						</figcaption>
+					</figure>
+				</li>
+
+				<li class="list-item" data-groups="all image">
+					<figure>
+						<img src="assets/images/p3-3.jpg" alt="p3">
+						<figcaption>
+							<a href="assets/images/p3-3.jpg" class="simple-ajax-popup"></a>
+							<div class="caption-inner">
+								<h3 class="portfolio-item-title">Some work</h3>
+								<div class="portfolio-item-desc">Other</div>
+							</div>
+						</figcaption>
+					</figure>
+				</li>
+
+				<li class="list-item" data-groups="all slideshow">
+					<figure>
+						<img src="assets/images/p4-4.jpg" alt="p4">
+						<figcaption>
+							<a href="assets/images/p4-4.jpg" class="simple-ajax-popup"></a>
+							<div class="caption-inner">
+								<h3 class="portfolio-item-title">Some work</h3>
+								<div class="portfolio-item-desc">Other</div>
+							</div>
+						</figcaption>
+					</figure>
+				</li>
+
+			</ul><!-- .projects-container -->
+
+		</div><!-- .contaier -->
+		<a class="custom-btn blog-viewMore" href="photos.html">VIEW MORE</a>
+	</section>
+
+	<!-- Portfolio end -->
+
+	
+
+	<!-- Blog start -->
+
+	<section id="blog" class="module blog ">
+		<div class="container">
+
+			<div class="module-header wow fadeInUp">
+				<h2 class="module-title"> Articles </h2>
+				<div class="module-line"></div>
+			</div>
+
+			<div class="row" id='twoblogs'>
+				<div class="col-sm-12">
+					<a class="custom-btn blog-viewMore" href="blog.html">VIEW MORE</a>
+				</div>
+			</div>
+		</div><!-- .container -->
+	</section>
+
+	<!-- Blog end -->
+
+
+	<!-- Contact start -->
+
+	<section id="contact" class="module module-gray">
+		<div class="container">
+
+			<div class="module-header wow fadeInUp">
+				<h2 class="module-title"> leave a message </h2>
+				<div class="module-line"></div>
+			</div>
+
+
+			<div class="row">
+
+				<div class="col-md-6 offset-md-3">
+
+					<form id="contact-form" action="#">
+						<div class="ajax-hidden">
+							<div class="form-group wow fadeInUp">
+								<label class="sr-only" for="c_name">Name</label>
+								<input type="text" id="c_name" class="form-control" name="c_name" placeholder="Name" required>
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".1s">
+								<label class="sr-only" for="c_email">Email address</label>
+								<input type="email" id="c_email" class="form-control" name="c_email" placeholder="E-mail" required>
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".2s">
+								<textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Send message" required></textarea>
+							</div>
+
+							<button type="button" class="btn btn-block custom-btn wow fadeInUp" id="messend" data-wow-delay=".3s">Send Message
+							</button>
+							<button type='button' class="btn btn-block custom-btn wow fadeInUp" id="mesbox" data-wow-delay=".3s" data-toggle="modal" data-target="#messmodal">Message Box
+							</button>
+						</div>
+						<div class="ajax-response"></div>
+					</form>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section>
+
+	<!-- Contact end -->
+
+	<!-- Modal -->
+	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id='messmodal'>
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title" id="exampleModalLabel">Message Box</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<table class="table table-borderless table-striped table-dark" style="border-radius: 5px;table-layout: fixed;" id="table">
+						<thead>
+						  <tr>
+							<th scope="col" style="width: 10px;">#</th>
+							<th scope="col" style="width: 50px;">Name</th>
+							<th scope="col" style="width: 80px;">Email</th>
+							<th scope="col" style="width: 180px;">Message</th>
+							<th scope="col" style="width: 30px;">Delete</th>
+						  </tr>
+						</thead>
+						<tbody id="messboxtbody">
+						</tbody>
+					  </table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" style="background-color: #F47B66;">Save changes</button>
+				  </div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Testimonial start -->
+
+	<div id="testimonial" class="module module text-center">
+		<div class="container">
+			
+			<div class="module-header wow fadeInUp">
+				<h2 class="module-title"> About us </h2>
+				<div class="module-line"></div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-md-8 offset-md-2 wow fadeInUp">
+					<div class="testimonials owl-carousel wow fadeInUp">
+						<div class="single-testimonials">
+							<h3>胡任斌</h3>
+							<p>乌兹！永远的神！</p>							
+							<div style="background-color:red ;width: 100px;height: 100px;margin: 0 auto;border-radius: 50px;overflow: hidden;">
+								<img  src="assets/images/hrb.jpg" alt="avatar">
+							</div>
+						</div>
+						<div class="single-testimonials">
+							<h3>张英哲</h3>
+							<p>Winter Is Coming.</p>
+							<div style="background-color:red ;width: 100px;height: 100px;margin: 0 auto;border-radius: 50px;overflow: hidden;">
+								<img  src="assets/images/zyz.png" alt="avatar">
+							</div>
+						</div>
+						<div class="single-testimonials">
+							<h3>张涛</h3>
+							<p>The Best For You.</p>						
+							<div style="background-color:red ;width: 100px;height: 100px;margin: 0 auto;border-radius: 50px;overflow: hidden;">
+								<img  src="assets/images/zt2.jpg" alt="avatar" style="width: 100%;height: 100%;">
+							</div>
+						</div>
+						<div class="single-testimonials">
+							<h3>王煜潇</h3>
+							<p>we write to taste life twice</p>							
+							<div style="background-color:red ;width: 100px;height: 100px;margin: 0 auto;border-radius: 50px;overflow: hidden;">
+								<img  src="assets/images/wyx.png" alt="avatar">
+							</div>
+						</div>
+						<div class="single-testimonials">
+							<h3>陶文韬</h3>
+							<p>twt</p>							
+							<div style="background-color:red ;width: 100px;height: 100px;margin: 0 auto;border-radius: 50px;overflow: hidden;">
+								<img  src="assets/images/twt.png" alt="avatar">
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</div>
+
+	<!-- Testimonial end -->
+
+	<!-- Footer start -->
+
+	<footer id="footer" class="module-gray">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<a href="#home" class="footer-logo"><h2>Richfish</h2></a>
+
+					<ul class="social-links">
+						<li><a href="#" class="wow fadeInUp">WeChat</a></li>
+						<li><a href="#" class="wow fadeInUp" data-wow-delay=".1s">QQ</a></li>
+						<li><a href="#" class="wow fadeInUp" data-wow-delay=".2s">QQ-mail</a></li>
+						<li><a href="#" class="wow fadeInUp" data-wow-delay=".3s">Stackoverflow</a></li>
+						<li><a href="#" class="wow fadeInUp" data-wow-delay=".4s">Codepen</a></li>
+					</ul>
+
+					<p class="copyright wow fadeInUp">
+						© 2021 beingeorge, All Rights Reserved .
+					</p>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</footer>
+
+	<!-- Footer end -->
+
+	<!-- Scroll-up -->
+
+	<div class="scroll-up">
+		<a href="#home" id="scroll-up"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>↑</a>
+	</div>
+</div>
+<script>
+	var ul = $("#twoblogs");
+	function renderTime(date) {
+		var dateee = new Date(date).toJSON();
+		return new Date(+new Date(dateee)).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '') 
+	}
+
+	function setBlogid(node){
+		var papa = node.parentNode; 
+		blog_id = papa.getAttribute("id");
+		localStorage.blog_id = blog_id;
+	}
+
+	$.ajax({
+		url:"http://localhost:8080/getallblogs",
+		type:"get",
+		async: false,
+		success: function(data){
+			var infors = data;
+			for(var i=infors.length-2;i<infors.length;i++){
+				var randompic = Math.floor(Math.random()*10);
+				var picpath = "assets/images/blog" + randompic + ".jpg";
+		
+				//img
+				var $img = $("<img></img>");
+				$img.attr({
+					"alt" : "Blog Desc",
+					"src" : picpath
+				});
+				var $span = $("<span></span>");
+				$span.text(infors[i]["blog_type"]);
+				var $divimg = $("<div></div>");
+				$divimg.attr("class", "blogList-img");
+				$divimg.append($img);
+				$divimg.append($span);
+		
+				//desc
+				var $h4 = $("<h4></h4>");
+				$h4.text(renderTime(infors[i]["blog_time"]));
+				var $h3 = $("<h3></h3>");
+				$h3.text(infors[i]["blog_title"]);
+				var $divdesc = $("<div></div>");
+				$divdesc.attr("class", "blogList-desc");
+				$divdesc.append($h4);
+				$divdesc.append($h3);
+		
+		
+				var $a = $("<a></a>");
+				$a.attr({
+					"href":"writeblog/index/blog-details.html",
+					"class":"blogList wow fadeInUp",
+					"onclick":"setBlogid(this)"
+				})
+				$a.append($divimg);
+				$a.append($divdesc);
+		
+		
+				var $div = $("<div></div>");
+				$div.attr({
+					"class":"col-sm-6",
+					"id" : infors[i]["blog_id"]
+				})
+				$div.append($a);
+		
+				ul.prepend($div);
+			}      
+		}
+	})  
+</script>
+	<!-- Javascript files -->
+	<script src="assets/js/vendor.js"></script>
+	<!-- Popper JS -->
+	<script src="assets/bootstrap/js/popper.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Custom scripts -->
+	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/custom-shuffle-init.js"></script>
+
+	<script src="messagebox.js"></script>
+	<script>
+		function showalert(text){
+			let pop = new Poppy({
+			title: {
+				text: text,
+				color: "#e74c3c"
+			},
+			position: "topLeft",
+			closeAfter: 2000
+			});
+			pop.show();
+		}
+	</script>
+	<script>
+		console.log("user_id: " + localStorage["id"])
+		var id=localStorage["id"];
+		if(id != 1){
+			let pop = new Poppy({
+			title: {
+				text: "只有博主可以查看留言箱",
+				color: "#e74c3c"
+			},
+			position: "topLeft",
+			closeAfter: 3000
+			});
+			pop.show();
+			$('#mesbox').text('disabled')
+			document.getElementById("mesbox").disabled=true;
+		}
+		if(id == undefined){
+			document.getElementById("messend").disabled=true;
+			$('#c_message').attr("placeholder", "登录后可给博主留言")
+		}
+	</script>
+</body>
+</html>
