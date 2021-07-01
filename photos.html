@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tigris - Personal Portfolio Template" />
+    <meta name="keywords" content="business card, creative, creative portfolio, cv theme, online resume, personal, portfolio, professional cv, responsive portfolio, resume, resume theme, vcard" />
+    <meta name="author" content="beingeorge" />
+    <meta name="theme-color" content="#1f1f20">
+
+    <title>photos wall</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- Font Awesome CSS -->
+    <link href="assets/css/all.css" rel="stylesheet" media="screen">
+
+    <!--[if lte IE 7]>
+    <script src="assets/js/icons-lte-ie7.js"></script>
+    <![endif]-->
+
+    <link href="assets/css/vendor.css" rel="stylesheet">
+
+    <!-- Tigris styles CSS -->
+    <link href="assets/css/Tigris.css" rel="stylesheet" media="screen">
+
+
+    <link href="assets/css/custom.css" rel="stylesheet" media="screen">
+    <script src="assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/poppyjs"></script>
+</head>
+
+<body>
+<section id="portfolio" class="module module-gray">
+    <div class="container">
+        <div class="row">
+
+            <div class="module-header wow fadeInUp">
+                <h2 class="module-title"> Photo Wall </h2>
+                <div class="module-line"></div>
+            </div>
+
+        </div><!-- .row -->
+        <!-- Portfolio Filter start-->
+
+        <button class="custom-btn blog-viewMore" style="margin-top: -20px;" id="upload" data-toggle='modal' data-target="#exampleModal">Upload</button>
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <ul id="filter" class=" wow fadeInUp">
+                    <li class="active" data-group="all">All</li>
+                    <li data-group="character">Character</li>
+                    <li data-group="landscape">Landscape</li>
+                    <li data-group="other">Other</li>
+                </ul>
+
+            </div>
+
+        </div><!-- .row -->
+
+        <!-- Portfolio Filter end -->
+
+        <ul class="list-items-container" id='photocontainer'>
+
+            <li class="list-item" data-groups="all other">
+                <figure>
+                    <img src="assets/images/p1-1.jpg" alt="p1">
+                    <figcaption>
+                        <a href="assets/images/p1-1.jpg" class="simple-ajax-popup"></a>
+                        <div class="caption-inner">
+                            <h3 class="portfolio-item-title">Some work</h3>
+                            <div class="portfolio-item-desc">Other</div>
+
+                        </div>
+                    </figcaption>
+                </figure>
+            </li>
+
+            <li class="list-item" data-groups="all other">
+                <figure>
+                    <img src="assets/images/p2-2.jpg" alt="p2">
+                    <figcaption>
+                        <a href="assets/images/p2-2.jpg" class="simple-ajax-popup"></a>
+                        <div class="caption-inner">
+                            <h3 class="portfolio-item-title">Some work</h3>
+                            <div class="portfolio-item-desc">Other</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </li>
+
+        </ul><!-- .projects-container -->
+
+    </div><!-- .contaier -->
+
+</section>
+
+<!-- Portfolio end -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">upload pictures</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id='picform' method="POST" action="post_pic.php" enctype="multipart/form-data" target="posthere">
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Choose the picture you want to upload</label>
+                        <select class="form-control" style="border-radius: 5px;margin-top: 1px;" id='typeselect'>
+                            <option value="" style="display: none">Which kind of picture</option>
+                            <option>character</option>
+                            <option>landscape</option>
+                            <option>other</option>
+                        </select>
+                        <div style="margin-top: 20px;margin-bottom: 20px;">
+                            <input class="form-control" type="text" placeholder="add description" style="border-radius: 5px;" id='despic' autocomplete="off">
+                        </div>
+                        <input type="file" name='upFile' class="form-control-file" id="uploadPic" accept=".jpg,image/png,image/gif" >
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" style="background-color: #F47B66;" id='uploadbtn'>Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer" class="module">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <a href="#home" class="footer-logo"><h2>Richfish</h2></a>
+
+                <ul class="social-links">
+                    <li><a href="#" class="wow fadeInUp">WeChat</a></li>
+                    <li><a href="#" class="wow fadeInUp" data-wow-delay=".1s">QQ</a></li>
+                    <li><a href="#" class="wow fadeInUp" data-wow-delay=".2s">QQ-mail</a></li>
+                    <li><a href="#" class="wow fadeInUp" data-wow-delay=".3s">Stackoverflow</a></li>
+                    <li><a href="#" class="wow fadeInUp" data-wow-delay=".4s">Codepen</a></li>
+                </ul>
+
+                <p class="copyright wow fadeInUp">
+                    © 2021 beingeorge, All Rights Reserved .
+                </p>
+
+            </div>
+
+        </div><!-- .row -->
+    </div><!-- .container -->
+</footer>
+
+<iframe name="posthere" frameborder=0 width=0 height=0></iframe>
+
+
+<!-- Javascript files -->
+<script src="photos.js"></script>
+
+
+<script src="assets/js/vendor.js"></script>
+<!-- Popper JS -->
+<script src="assets/bootstrap/js/popper.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Custom scripts -->
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/custom-shuffle-init.js"></script>
+
+<script src="myajax.js"></script>
+
+<script>
+    /*var picform = document.querySelector('#picform');
+    var type = $('#typeselect');
+    var des = $('#despic');
+    var uploadPic = document.getElementById('uploadPic');
+    var uploadbtn = document.querySelector('#uploadbtn');
+    console.log(uploadPic.files[0])
+    uploadbtn.onclick = function(){
+        var type = $('#typeselect');
+        var des = $('#despic');
+        if(type.val() == ''){alert('please select a type')}
+        ajax({
+            type : "POST",
+            url : "post_pic.php",
+            data : {"type":type.val(),"description":des.val()},
+            timeout: 3000,
+            success: function(xhr){picform.submit();alert('upload success!')},
+            error: function(xhr){console.log(xhr.status)}
+        });
+    }     */
+    //let picjson2;
+    $.ajax({
+        url: "http://localhost:8080/getphotos",
+        type: "GET",
+        async: false,
+        success: function(data){
+            //console.log(data);
+            var picjson2 = data;
+            //console.log(picjson2.length);
+            //var len = picjson2.length;
+            if(picjson2.length) {
+                for(var i=0;i<picjson2.length;i++) {
+                    var index1=picjson2[i]['photo_path'].lastIndexOf('/');
+					//lastIndexOf(a)函数返回的是在字符串中a从
+                    //console.log(index1);
+                    //console.log(picjson2[i]['photo_path'].substr(78,picjson2[i]['photo_path'].length-index1));
+					//
+                    path = '/photoswall'+picjson2[i]['photo_path'].substr(78,picjson2[i]['photo_path'].length-index1);
+                    type = picjson2[i]['photo_type'];
+                    des = picjson2[i]['photo_description'];
+                    var $img = $("<img></img>");
+                    $img.attr("src",path);
+                    var $figcap = $("<figcaption></figcaption>");
+                    var $a = $("<a></a>");
+                    $a.attr({
+                        "href" : path,
+                        "class" : "simple-ajax-popup"
+                    });
+                    $figcap.append($a);
+
+                    var $div = $("<div></div>");
+                    $div.attr("class", "caption-inner");
+
+                    var $h3 = $("<h3></h3>");
+                    $h3.attr("class", "portfolio-item-title");
+                    $h3.text(des);
+
+                    var $div2 = $("<div></div>");
+                    $div2.attr("class", "portfolio-item-desc");
+                    $div2.text(type);
+
+                    $div.append($h3);
+                    $div.append($div2);
+                    $figcap.append($div);
+
+                    var $fig = $("<figure></figure>");
+                    $fig.append($img);
+                    $fig.append($figcap);
+                    var $li = $("<li></li>");
+                    $li.attr({
+                        "class" : "list-item",
+                        "data-groups" : "all "+type
+                    })
+                    $li.append($fig);
+                    $('#photocontainer').append($li);
+                }
+            }
+
+        }
+    })
+    uploadbtn.onclick = function(){
+        var picform = document.querySelector('#picform');
+        var type = $('#typeselect');
+        var des = $('#despic');
+        var uploadPic = document.getElementById('uploadPic');
+        var uploadbtn = document.querySelector('#uploadbtn');
+        var formData = new FormData();
+        formData.append("file", uploadPic.files[0]);
+        formData.append("type",type.val());
+        formData.append("description",des.val());
+        console.log(formData);
+        if(type.val() == ''){
+            alert('please select a type');
+        } ;
+        $.ajax({
+            type : "POST",
+            url : "http://localhost:8080/upphotos",
+            data : formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function(xhr){
+                //picform.submit();
+                alert('upload success!')
+            },
+            error: function(xhr){
+                //picform.submit();
+                console.log(xhr.status)
+            }
+        });
+    }
+</script>
+<script>
+    console.log("user_id: "+localStorage["id"])
+    var id=localStorage["id"];
+    if(id != 1){
+        let pop = new Poppy({
+        title: {
+            text: "只有博主可以上传照片",
+            color: "#e74c3c"
+        },
+        position: "topLeft",
+        closeAfter: 3000
+        });
+        pop.show();
+        $('#upload').text('disabled');
+        document.getElementById("upload").disabled=true;
+    }
+</script>
+</body>
+</html>
