@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML Preview(markdown to html) - Editor.md examples</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="../css/editormd.preview.css" />
+        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link href="css/all.css" rel="stylesheet">
+        <link href="css/vendor.css" rel="stylesheet">
+        <link href="css/Tigris.css" rel="stylesheet" media="screen">
+		<link href="css/custom.css" rel="stylesheet" media="screen">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link rel='stylesheet' href='https://wojtek.im/application-ba03e6a156e4f969133ad89c6b95c0c5.css'><link rel="stylesheet" href="likebutton/style.css">
+
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+		<!-- Iconos -->
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"><link rel="stylesheet" href="comment/style.css">
+
+		<script src="js/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/poppyjs"></script>
+		<style>            
+            .editormd-html-preview {
+                width: 90%;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Preloader : Start -->
+
+	<div id="loading">
+		<div id="loading-center">
+			<div class="spinner-grow" role="status">
+			  <span class="sr-only">Loading...</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Preloader : End  -->
+	<!-- Blog Detail Start -->
+
+	<section class="blog-detail module-gray" id='home'>
+		<div class="blog-detail-banner wow fadeIn">
+			<img src="../../assets/images/blog-banner5.jpg" alt="Blog Desc">
+		</div>
+		
+		<div class="blog-detail-contents wow fadeInUp">
+			<h2 id="title"></h2>
+			<div class="blog-detail-about clearfix">
+				<div class="media float-left align-items-center">
+					<div class="media-left mr-3">
+						<img src="images/about.jpg" class="media-object" alt="avatar">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">Richfish</h4>
+						<a onclick="deleteblog()" id='deleteblog'>delete</a>
+						<p id='time'></p>
+					</div>
+				</div>
+				<div class="blog-detail-category float-right" id="type">
+					code
+				</div>
+			</div>
+			<div class="blog-detail-content">
+				<div id="layout">
+					<div id="test-editormd-view">
+					   <textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>               
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="font-size: 16px;text-align: center;">
+			<div class='middle-wrapper'>
+				<div class='like-wrapper'>
+				  <a class='like-button'id='alike'>
+					<span class='like-icon'>
+					  <div class='heart-animation-1'></div>
+					  <div class='heart-animation-2'></div>
+					</span>
+					Like
+				  </a>
+				</div>							
+			</div>
+		</div>
+		<label style="font-size: 20px;position: absolute;left: 49.5%;margin-top: -85px;" id="bloglikes"></label>
+	</section>
+
+	<!-- Blog Detail End -->
+
+	
+
+	<!-- Blog start -->
+
+
+	<section class="module blog">
+		<div class="container">
+
+			<div class="module-header">
+				<h2 class="module-title"> Recent Post </h2>
+				<div class="module-line"></div>
+			</div>
+
+			<div class="row" id="twoblogs">
+				<div class="col-sm-12">
+					<a class="custom-btn blog-viewMore" href="../../blog.html">VIEW MORE</a>
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section>
+
+	<!-- Blog end -->
+
+	<!-- comment start -->
+
+	<section class="module-gray">
+		<div class="container" >
+			<div class="row" style="height: 30px;">
+				<input type="text" class="form-control" id="commenttext" placeholder="登录后可发表评论" style="border-radius: 5px;width: 90%;">
+				<button id="publishbtn" class="btn btn-primary" type="button" style="margin-left: 10px;height: 30px;line-height: 10px;background-color: #F47B66;">发布</button>
+			</div>
+			<div class="comments-container">
+		
+				<ul id="comments-list" class="comments-list"></ul>
+
+			</div>
+		<!-- partial -->
+		<div class="row" style="height: 20px;"></div>
+		</div><!-- .container -->
+	</section>
+	
+	<!-- comment end -->
+
+
+	<!-- Footer start -->
+
+	<footer id="footer" class="module">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<a href="#home" class="footer-logo"><h2>Richfish</h2></a>
+
+					<ul class="social-links">
+						<li><a href="#" class="wow fadeInUp">WeChat</a></li>
+						<li><a href="#" class="wow fadeInUp" data-wow-delay=".1s">QQ</a></li>
+						<li><a href="#" class="wow fadeInUp" data-wow-delay=".2s">QQ-mail</a></li>
+						<li><a href="#" class="wow fadeInUp" data-wow-delay=".3s">Stackoverflow</a></li>
+						<li><a href="#" class="wow fadeInUp" data-wow-delay=".4s">Codepen</a></li>
+					</ul>
+
+					<p class="copyright wow fadeInUp">
+						© 2021 beingeorge, All Rights Reserved .
+					</p>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</footer>
+
+	<!-- Footer end -->
+
+	<!-- Scroll-up -->
+
+	<div class="scroll-up">
+		<a href="#home" id="scroll-up">↑</a>
+	</div>
+	
+	<!-- Javascript files -->
+		<script>
+			var ul = $("#twoblogs");
+			function renderTime(date) {
+				var dateee = new Date(date).toJSON();
+				return new Date(+new Date(dateee) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '') 
+			}
+		
+			function setBlogid(node){
+				var papa = node.parentNode; 
+				blog_id = papa.getAttribute("id");
+				localStorage.blog_id = blog_id;
+			}
+		
+			$.ajax({
+				url:"http://localhost:8080/getallblogs",
+				type:"get",
+				async: false,
+				success: function(data){
+					var infors = data;
+					for(var i=infors.length-2;i<infors.length;i++){
+						var randompic = Math.floor(Math.random()*10);
+						var picpath = "../../assets/images/blog" + randompic + ".jpg";
+						
+						//img
+						var $img = $("<img></img>");
+						$img.attr({
+							"alt" : "Blog Desc",
+							"src" : picpath
+						});
+						var $span = $("<span></span>");
+						$span.text(infors[i]["blog_type"]);
+						var $divimg = $("<div></div>");
+						$divimg.attr("class", "blogList-img");
+						$divimg.append($img);
+						$divimg.append($span);
+				
+						//desc
+						var $h4 = $("<h4></h4>");
+						$h4.text(renderTime(infors[i]["blog_time"]));
+						var $h3 = $("<h3></h3>");
+						$h3.text(infors[i]["blog_title"]);
+						var $divdesc = $("<div></div>");
+						$divdesc.attr("class", "blogList-desc");
+						$divdesc.append($h4);
+						$divdesc.append($h3);
+				
+				
+						var $a = $("<a></a>");
+						$a.attr({
+							"href":"../../writeblog/index/blog-details.html",
+							"class":"blogList wow fadeInUp",
+							"onclick":"setBlogid(this)"
+						})
+						$a.append($divimg);
+						$a.append($divdesc);
+				
+				
+						var $div = $("<div></div>");
+						$div.attr({
+							"class":"col-sm-6",
+							"id" : infors[i]["blog_id"]
+						})
+						$div.append($a);
+				
+						ul.prepend($div);
+					}      
+				}
+			})  
+		</script>
+
+        <script src="../lib/marked.min.js"></script>
+		<script src="../lib/prettify.min.js"></script>
+		
+		<script src="comment/script.js"></script>
+		<script  src="likebutton/script.js"></script>
+
+        <script src="../lib/raphael.min.js"></script>
+        <script src="../lib/underscore.min.js"></script>
+        <script src="../lib/sequence-diagram.min.js"></script>
+        <script src="../lib/flowchart.min.js"></script>
+		<script src="../lib/jquery.flowchart.min.js"></script>
+
+        <script src="../editormd.js"></script>
+
+		<script src="blog-details.js"></script>
+        <script src="js/vendor.js"></script>
+
+        <!-- Popper JS -->
+        <script src="bootstrap/js/popper.js"></script>
+    
+        <!-- Latest compiled JavaScript -->
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    
+        <!-- Custom scripts -->
+        <script src="js/custom.js"></script>
+		<script src="js/custom-shuffle-init.js"></script>
+		<script>
+			var id=localStorage["id"];
+			if(id == undefined){
+				$("#alike").attr("disabled",true).css("pointer-events","none");
+				$("$publishbtn").attr("disabled",true);
+			}
+			if( id != 1){
+				$("#deleteblog").attr("onclick","alert('你不能删除该文章！')");
+			}
+		</script>
+		
+    </body>
+</html>

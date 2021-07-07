@@ -1,0 +1,43 @@
+#title {
+    border: 0px solid black;
+    border-radius: 4px;
+    position:absolute;
+    top: 25px;
+    width: 500px;
+    height: 50px;
+    margin-top: -15px;
+    margin-left: 20px;
+    font-size: 25px;
+    background-color: #dfe6e9;
+}
+#uploadbtn {
+    position: absolute;
+    border-radius: 5px;
+    margin-top: 13px;
+    margin-left: 40px;
+}
+#savebtn {
+    position: absolute;
+    border-radius: 5px;
+    margin-top: 13px;
+    margin-left: 10px;
+}
+#typeselect{
+    position: absolute; 
+    border-radius: 5px;
+    width: 180px;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+#editormd-theme-select {
+    margin-top: 5px;
+    margin-left: -10px;
+}
+#editor-area-theme-select {
+    margin-top: 5px;
+    margin-left: -20px;
+}
+#preview-area-theme-select {
+    margin-top: 5px;
+    margin-left: -30px;
+}

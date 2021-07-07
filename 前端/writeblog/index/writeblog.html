@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>Write</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/writeblog.css" />
+        <link rel="stylesheet" href="../css/editormd.css" />
+        <link rel="stylesheet" href="../css/editormd.preview.min.css" />
+        <!-- <link href="css/all.css" rel="stylesheet" media="screen"> -->
+
+
+        <link href="css/vendor.css" rel="stylesheet">
+
+        <link href="css/Tigris.css" rel="stylesheet" media="screen">
+
+
+        <link href="css/custom.css" rel="stylesheet" media="screen">
+
+        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+        
+        <script src="https://cdn.jsdelivr.net/npm/poppyjs"></script>
+    </head>
+    <body style="background-color: #95a5a6;">
+        <div id="layout" >
+            <div style="height:70px;background-color: #dfe6e9;width: 1550px;" class="row">
+                <div class="col-md-5">
+                    <input id='title' placeholder="请输入文章标题"/>
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-2">
+                    <button class="custom-btn blog-viewMore" id="uploadbtn">Upload</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="custom-btn blog-viewMore" id="savebtn">Save</button>
+                </div>
+            </div>
+                
+                
+            <div class="row" style="background-color: #bdc3c7;height: 43px;">
+                <div class="col-md-1">
+                    <p style="font-size: 25px;margin-left: 10px;margin-top: -2px;">THEME:</p>
+                </div>
+                <div class="col-md-2">
+                    <select id="editormd-theme-select" class="form-control">
+                        <option selected="selected" value="">选择工具栏主题</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select id="editor-area-theme-select" class="form-control">
+                        <option selected="selected" value="">选择编辑页主题</option>
+                    </select>
+                </div> 
+                <div class="col-md-2" >
+                    <select id="preview-area-theme-select" class="form-control">
+                        <option selected="selected" value="">选择预览页主题</option>
+                    </select>
+                </div>
+                <div class="col-md-3" style="font-size: 25px;">
+                    
+                </div>
+                <div class="col-md-2">
+                    <select class="form-control" id='typeselect'>
+                        <option value="" style="display: none">Which kind of blog</option>
+                        <option>code</option>
+                        <option>daily</option>
+                        <option>travel</option>
+                    </select>
+                </div>              
+            </div>
+            
+            <div >
+                <div id="test-editormd" style="margin-top: 10px;border-radius: 10px;">
+                    <textarea class="editormd-markdown-textarea" name="test-editormd-markdown-doc" id="editormd"></textarea>
+                    <textarea class="editormd-html-textarea" name="editorhtml" id="editorhtml"></textarea> 
+                </div>
+            </div>
+        </div>
+
+        
+
+        <script src="js/jquery.min.js"></script>
+        <script src="../lib/marked.min.js"></script>
+        <script src="../lib/prettify.min.js"></script>
+        
+        <script src="../lib/raphael.min.js"></script>
+        <script src="../lib/underscore.min.js"></script>
+        <script src="../lib/sequence-diagram.min.js"></script>
+        <script src="../lib/flowchart.min.js"></script>
+        <script src="../lib/jquery.flowchart.min.js"></script>
+
+        <script src="../editormd.js"></script>
+
+        <script type="text/javascript">
+			var testEditor;
+
+            function themeSelect(id, themes, lsKey, callback)
+            {
+                var select = $("#" + id);
+                
+                for (var i = 0, len = themes.length; i < len; i ++)
+                {                    
+                    var theme    = themes[i];
+                    var selected = (localStorage[lsKey] == theme) ? " selected=\"selected\"" : "";
+                    
+                    select.append("<option value=\"" + theme + "\"" + selected + ">" + theme + "</option>");
+                }
+                
+                select.bind("change", function(){
+                    var theme = $(this).val();
+                    
+                    if (theme === "")
+                    {
+                        alert("theme == \"\"");
+                        return false;
+                    }
+                    
+                    console.log("lsKey =>", lsKey, theme);
+                    
+                    localStorage[lsKey] = theme;
+                    callback(select, theme);
+                }); 
+                
+                return select;
+            }
+
+            $(function() {
+                testEditor = editormd("test-editormd", {
+                    width   : "70%",
+                    height  : 800,
+                    //markdown : md,
+                    codeFold : true,
+                    syncScrolling : "single",
+                    //你的lib目录的路径
+                    path    : "../lib/",
+                    imageUpload: false,//关闭图片上传功能
+                    // Editor.md theme, default or dark, change at v1.5.0
+                    // You can also custom css class .editormd-preview-theme-xxxx
+                    theme        : (localStorage.theme) ? localStorage.theme : "dark",
+                    
+                    // Preview container theme, added v1.5.0
+                    // You can also custom css class .editormd-preview-theme-xxxx
+                    previewTheme : (localStorage.previewTheme) ? localStorage.previewTheme : "dark", 
+                    
+                    // Added @v1.5.0 & after version is CodeMirror (editor area) theme
+                    editorTheme  : (localStorage.editorTheme) ? localStorage.editorTheme : "pastel-on-dark", 
+                    emoji: false,
+                    taskList: true, 
+                    tocm: true,         // Using [TOCM]
+                    tex: true,                   // 开启科学公式TeX语言支持，默认关闭
+                    flowChart: true,             // 开启流程图支持，默认关闭
+                    sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
+                    //这个配置在simple.html中并没有，但是为了能够提交表单，使用这个配置可以让构造出来的HTML代码直接在第二个隐藏的textarea域中，方便post提交表单。
+                    saveHTMLToTextarea : true,   
+                    toolbarIcons : function() {
+                        // Or return editormd.toolbarModes[name]; // full, simple, mini
+                        // Using "||" set icons align right.
+                        return ["undo","redo","|","bold","del","italic","quote","ucwords","uppercase","lowercase","|","h1","h2","h3","h4","h5","h6","|","list-ul","list-ol","hr","|","link","reference-link","code","preformatted-text","code-block","table","datetime","html-entities","pagebreak","|","goto-line","watch","preview","fullscreen","clear","search","|","help","info"]
+                    },
+                });
+                themeSelect("editormd-theme-select", editormd.themes, "theme", function($this, theme) {
+                    testEditor.setTheme(theme);
+                });
+                
+                themeSelect("editor-area-theme-select", editormd.editorThemes, "editorTheme", function($this, theme) {
+                    testEditor.setCodeMirrorTheme(theme); 
+                    // or testEditor.setEditorTheme(theme);
+                });
+                
+                themeSelect("preview-area-theme-select", editormd.previewThemes, "previewTheme", function($this, theme) {
+                    testEditor.setPreviewTheme(theme);
+                });   
+            });
+        </script>
+        <script src="writeblog.js"></script>
+    </body>
+</html>
